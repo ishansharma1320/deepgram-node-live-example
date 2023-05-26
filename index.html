@@ -2,24 +2,74 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Deepgram Test</title>
-    <script
-      src="https://cdn.socket.io/4.5.3/socket.io.min.js"
-      integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi"
-      crossorigin="anonymous"
-    ></script>
+    <title>Yactraq Realtime Test</title>
+    <link rel="icon" type="img/png" sizes="32x32" href="yaqtraq.png"/>
+    <style type="text/css">
+      body {
+        background: #F4F6F6;
+        min-height: 100vh;
+      }
+      .message {
+        box-shadow: 0px 20px 60px rgba(0, 0, 0, 0.05);
+      }
+        .message-custom-utterance {
+          background-color: #bbf4b4;
+          padding: 1em;
+          margin: 2em;
+          width: max-content;
+          min-width: 10em;
+          border-radius: 1em;
+        }
+        nav.navbar {
+          border-radius: 0.5em;
+          align-items: center;
+        }
+
+        .navbar-brand::after{
+          content: " ";
+          width: 1px;
+          background-color: #D3D3D3;
+        }
+        .navbar-heading {
+          font-family: "Inter", sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          padding-top: 0.3rem;
+          padding-bottom: 0.3rem;
+          margin-left: 1.5rem;
+          color: rgba(43, 41, 68, 0.6);
+        }
+    </style>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
   </head>
   <body>
-    <article class="message">
-      <div class="message-header">
-        <p>Transcript</p>
+    
+    <section class="container">
+      <article id="navbar" class="pt-4">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand py-3">
+            <span class="navbar-item" href="https://bulma.io">
+              <img src="logo.svg" width="112" height="28">
+            </span>
+          </div>
+          <span class="navbar-heading"> Realtime Speech Transcription</span>
+          </nav>
+      </article>
+     <article id="transcript" class="mt-6">
+      <div class="message">
+        <div class="message-header">
+          <p>Transcript</p>
+          <p id="connection-status">Connection Status: Not Connected</p>
+        </div>
+        <div id="message-body" class="message-body">
+        </div>
       </div>
-      <div id="message-body" class="message-body"></div>
-    </article>
+     </article>
+    </section>
     <script src="client.js"></script>
   </body>
 </html>
